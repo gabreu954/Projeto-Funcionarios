@@ -1,0 +1,92 @@
+﻿@{
+    ViewData["Title"] = "Listar Funcionários";
+}
+
+@model WebSite.Funcionarios.Models.BuscaViewModel
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <p class="h1 text-info">@ViewData["Title"]</p>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+
+    <div class="col-12">
+
+        <div class="row">
+
+            <form method="post" asp-action="Buscar">
+                <div class="row">
+
+                    <div class="col-6">
+                        <label asp-for="Nome" class="form-label">Nome(*): </label>
+                        <input asp-for="Nome" type="text" class="form-control" placeholder="">
+
+                    </div>
+
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label asp-for="DepartamentoId">Departamento(*):</label>
+                            <select asp-for="DepartamentoId" class="custom-select" placeholder="Selecione">
+                                <option value="0">Selecione</option>
+                                @if (ViewData["Departamentos"] != null)
+                                {
+                                    foreach (var item in (List<WebSite.Funcionarios.Models.DepartamentoViewModel>)ViewData["Departamentos"])
+                                    {
+                                        <option value="@item.DepartamentoId">@item.Descricao</option>
+                                    }
+                                }
+                            </select>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+
+                    <div class="col-auto">
+                        <button type="submit" class="btn btn-primary mb-3">Pesquisar <i class="fa-solid fa-magnifying-glass"></i></button>
+                    </div>
+
+                </div>
+
+            </form>
+
+            @if (ViewData["Registros"] != null)
+            {
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">CPF</th>
+                            <th scope="col">Nome</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        @foreach (var item in (List<FuncionarioViewModel>)ViewData["Registros"])
+                        {
+                            <tr>
+                                <th>@item.Cpf</th>
+                                <td>@item.Nome</td>
+                                <td>
+
+                                    <a href="#" class="btn btn-info"><i class="fa-solid fa-pencil"></i></a>
+                                    <a href="#" class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></a>
+                                </td>
+                            </tr>
+                        }
+
+
+                    </tbody>
+                </table>
+            }
+
+        </div>
+
+    </div>
+
+</div>
