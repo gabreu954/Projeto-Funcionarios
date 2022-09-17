@@ -16,6 +16,14 @@
 
     <div class="col-12">
 
+        @if (TempData["Success"] != null)
+        {
+            <p class="alert alert-success" id="successMessage">@TempData["Success"]</p>
+        }
+        @if (TempData["Error"] != null)
+        {
+            <p class="alert alert-danger" id="successMessage">@TempData["Error"]</p>
+        }
         <div class="row">
 
             <form method="post" asp-action="Buscar">
@@ -73,8 +81,7 @@
                                 <th>@item.Cpf</th>
                                 <td>@item.Nome</td>
                                 <td>
-
-                                    <a href="#" class="btn btn-info"><i class="fa-solid fa-pencil"></i></a>
+                                    <a href="@Url.Action("Alterar", new { cpf = item.Cpf, nome = item.Nome, idade = item.Idade, departamentoId  = item.DepartamentoId, funcaoId = item.FuncaoId })" class="btn btn-info"><i class="fa-solid fa-pencil"></i></a>
                                     <a href="#" class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></a>
                                 </td>
                             </tr>

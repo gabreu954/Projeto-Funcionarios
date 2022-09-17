@@ -39,5 +39,43 @@ namespace WebSite.Funcionarios.Controllers
             return View("Index");
         }
 
+        public ActionResult Alterar(string cpf, string nome, int idade, int departamentoId, int funcaoId)
+        {
+            ViewData["Funcoes"] = _consultas.SelectFuncoes();
+
+            ViewData["Departamentos"] = _consultas.SelectDepartamentos();
+
+            FuncionarioViewModel model = new FuncionarioViewModel
+            {
+                Cpf = cpf,
+                Nome = nome,
+                Idade = idade,
+                DepartamentoId = departamentoId,
+                FuncaoId = funcaoId
+            };
+
+            return View("Alterar", model);
+        }
+
+        public ActionResult AtualizarBanco(FuncionarioViewModel model)
+        {
+
+            try
+            {
+                _consultas.UpdateFuncionario(model);
+            }
+            catch (Exception ex)
+            {
+                TempData["Error"] = $"Ocorreu um erro: {ex.Message}";
+
+                return View("Index");
+            }
+
+            TempData["Success"] = "Funcionário atualizado com Sucesso";
+
+            return View("Index");
+
+        }
+
     }
 }

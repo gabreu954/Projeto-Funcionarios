@@ -1,0 +1,97 @@
+﻿@{
+    ViewData["Title"] = "Alterar Funcionário";
+}
+
+@model WebSite.Funcionarios.Models.FuncionarioViewModel
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <p class="h1 text-info">@ViewData["Title"]</p>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+
+    <div class="col-12">
+
+        <form method="post" asp-action="AtualizarBanco">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="row">
+                <div class="col-sm-6">
+                    <label asp-for="Cpf" class="form-label">CPF(*):</label>
+                    <input asp-for="Cpf" type="text" class="form-control" placeholder="Digite o CPF..." readonly>
+                    <span asp-validation-for="Cpf" class="text-danger"></span>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-sm-6">
+                    <label asp-for="Nome" class="form-label">Nome(*):</label>
+                    <input asp-for="Nome" type="text" class="form-control" placeholder="Digite o nome...">
+                    <span asp-validation-for="Nome" class="text-danger"></span>
+                </div>
+
+            </div>
+
+
+            <div class="row">
+                <div class="col-sm-3">
+                    <label asp-for="Idade" class="form-label">Idade(*):</label>
+                    <input asp-for="Idade" type="number" class="form-control" placeholder="Digite a idade...">
+                    <span asp-validation-for="Idade" class="text-danger"></span>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-6">
+                    <div class="form-group">
+                        <label asp-for="DepartamentoId">Departamento(*):</label>
+                        <select asp-for="DepartamentoId" class="custom-select" placeholder="Selecione">
+                            <option value="">Selecione</option>
+                            @if (ViewData["Departamentos"] != null)
+                            {
+                                foreach (var item in (List<WebSite.Funcionarios.Models.DepartamentoViewModel>)ViewData["Departamentos"])
+                                {
+                                    <option value="@item.DepartamentoId">@item.Descricao</option>
+                                }
+                            }
+                        </select>
+                        <span asp-validation-for="DepartamentoId" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="col-6">
+                    <div class="form-group">
+                        <label asp-for="FuncaoId">Função(*):</label>
+                        <select asp-for="FuncaoId" class="custom-select" placeholder="Selecione">
+                            <option value="">Selecione</option>
+                            @if (ViewData["Funcoes"] != null)
+                            {
+                                foreach (var item in (List<WebSite.Funcionarios.Models.FuncaoViewModel>)ViewData["Funcoes"])
+                                {
+                                    <option value="@item.FuncaoId">@item.Descricao</option>
+                                }
+                            }
+                        </select>
+                        <span asp-validation-for="FuncaoId" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+
+                <div class="col-auto">
+                    <button type="submit" class="btn btn-primary mb-3">Salvar</button>
+                </div>
+
+            </div>
+
+        </form>
+
+    </div>
+</div>

@@ -103,5 +103,19 @@ namespace WebSite.Funcionarios.Connections
 
         }
 
+        public void UpdateFuncionario(FuncionarioViewModel model)
+        {
+            _dbContext.Funcionarios.Update(new Funcionario
+            {
+                Nome = model.Nome,
+                Cpf = model.Cpf,
+                Idade = model.Idade,
+                DepartamentoId = model.DepartamentoId,
+                FuncaoId = model.FuncaoId
+            });
+
+            _dbContext.SaveChanges();
+        }
+
     }
 }
