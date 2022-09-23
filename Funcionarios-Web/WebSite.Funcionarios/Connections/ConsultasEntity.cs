@@ -117,5 +117,11 @@ namespace WebSite.Funcionarios.Connections
             _dbContext.SaveChanges();
         }
 
+        public void DeletarFuncionario(string cpf)
+        {
+            _dbContext.Funcionarios.Remove(new Funcionario { Cpf = cpf });
+            _dbContext.SaveChanges();
+        }
+
     }
 }

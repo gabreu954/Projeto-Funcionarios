@@ -77,5 +77,24 @@ namespace WebSite.Funcionarios.Controllers
 
         }
 
+        public ActionResult Excluir(string cpf)
+        {
+
+            try
+            {
+                _consultas.DeletarFuncionario(cpf);
+            }
+            catch (Exception ex)
+            {
+                TempData["Error"] = $"Ocorreu um erro: {ex.Message}";
+
+                return View("Index");
+            }
+
+            TempData["Success"] = "Funcionário deletado com Sucesso";
+
+            return RedirectToAction("Index");
+        }
+
     }
 }

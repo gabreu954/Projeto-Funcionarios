@@ -2,6 +2,30 @@
     ViewData["Title"] = "Listar Funcionários";
 }
 
+@section scripts{
+
+    <script>
+
+
+            $(".excluir").click(function () {
+
+                $("#modalConfirmacao").modal('show');
+
+                var cpf = $(this).attr("data-id");
+                var link = "@Url.Action("Excluir")";
+
+                link += `?cpf=${cpf}`;
+
+                $(".confirma").click(function () {
+                    location.href = link;
+                })
+
+            });
+
+        
+    </script>
+}
+
 @model WebSite.Funcionarios.Models.BuscaViewModel
 
 <div class="container">
@@ -82,7 +106,7 @@
                                 <td>@item.Nome</td>
                                 <td>
                                     <a href="@Url.Action("Alterar", new { cpf = item.Cpf, nome = item.Nome, idade = item.Idade, departamentoId  = item.DepartamentoId, funcaoId = item.FuncaoId })" class="btn btn-info"><i class="fa-solid fa-pencil"></i></a>
-                                    <a href="#" class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></a>
+                                    <button data-id="@item.Cpf" class="excluir btn btn-danger"><i class="fa-solid fa-trash-can"></i></button>
                                 </td>
                             </tr>
                         }
@@ -96,4 +120,25 @@
 
     </div>
 
+</div>
+
+
+<div class="modal" id="modalConfirmacao" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Confirmação</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Deseja Excluir o Funcionário?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="confirma btn btn-primary">Sim</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Não</button>
+            </div>
+        </div>
+    </div>
 </div>
