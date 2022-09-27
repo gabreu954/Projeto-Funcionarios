@@ -21,6 +21,8 @@ namespace WebSite.Funcionarios.Models
         [Required(ErrorMessage = "O campo Idade é obrigatório")]
         public int Idade { get; set; }
 
+        [Required(ErrorMessage = "O campo Status é obrigatório")]
+        public string Status { get; set; }
 
         [Required(ErrorMessage = "O campo Departamento é obrigatório")]
         public int DepartamentoId { get; set; }

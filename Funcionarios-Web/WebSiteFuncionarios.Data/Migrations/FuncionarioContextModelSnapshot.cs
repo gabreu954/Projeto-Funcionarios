@@ -104,6 +104,9 @@ namespace WebSiteFuncionarios.Data.Migrations
                     b.Property<string>("Nome")
                         .HasColumnType("varchar(100)");
 
+                    b.Property<string>("Status")
+                        .HasColumnType("varchar(100)");
+
                     b.HasKey("Cpf");
 
                     b.HasIndex("DepartamentoId");

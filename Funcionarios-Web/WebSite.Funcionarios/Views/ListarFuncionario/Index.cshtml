@@ -101,14 +101,40 @@
 
                         @foreach (var item in (List<FuncionarioViewModel>)ViewData["Registros"])
                         {
-                            <tr>
-                                <th>@item.Cpf</th>
-                                <td>@item.Nome</td>
-                                <td>
-                                    <a href="@Url.Action("Alterar", new { cpf = item.Cpf, nome = item.Nome, idade = item.Idade, departamentoId  = item.DepartamentoId, funcaoId = item.FuncaoId })" class="btn btn-info"><i class="fa-solid fa-pencil"></i></a>
-                                    <button data-id="@item.Cpf" class="excluir btn btn-danger"><i class="fa-solid fa-trash-can"></i></button>
-                                </td>
-                            </tr>
+                            if (item.Status == "Ativo")
+                            {
+                                <tr class="table-success">
+                                    <th>@item.Cpf</th>
+                                    <td>@item.Nome</td>
+                                    <td>
+                                        <a href="@Url.Action("Alterar", new { cpf = item.Cpf, nome = item.Nome, idade = item.Idade,status = item.Status, departamentoId  = item.DepartamentoId, funcaoId = item.FuncaoId })" class="btn btn-info"><i class="fa-solid fa-pencil"></i></a>
+                                        <button data-id="@item.Cpf" class="excluir btn btn-danger"><i class="fa-solid fa-trash-can"></i></button>
+                                    </td>
+                                </tr>
+                            }
+                            if (item.Status == "Ausente")
+                            {
+                                <tr class="table-warning">
+                                    <th>@item.Cpf</th>
+                                    <td>@item.Nome</td>
+                                    <td>
+                                        <a href="@Url.Action("Alterar", new { cpf = item.Cpf, nome = item.Nome, idade = item.Idade,status = item.Status, departamentoId  = item.DepartamentoId, funcaoId = item.FuncaoId })" class="btn btn-info"><i class="fa-solid fa-pencil"></i></a>
+                                        <button data-id="@item.Cpf" class="excluir btn btn-danger"><i class="fa-solid fa-trash-can"></i></button>
+                                    </td>
+                                </tr>
+                            }
+                            if (item.Status == "Desligado")
+                            {
+                                <tr class="table-danger">
+                                    <th>@item.Cpf</th>
+                                    <td>@item.Nome</td>
+                                    <td>
+                                        <a href="@Url.Action("Alterar", new { cpf = item.Cpf, nome = item.Nome, idade = item.Idade,status = item.Status, departamentoId  = item.DepartamentoId, funcaoId = item.FuncaoId })" class="btn btn-info"><i class="fa-solid fa-pencil"></i></a>
+                                        <button data-id="@item.Cpf" class="excluir btn btn-danger"><i class="fa-solid fa-trash-can"></i></button>
+                                    </td>
+                                </tr>
+                            }
+
                         }
 
 

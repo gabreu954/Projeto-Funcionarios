@@ -8,7 +8,7 @@ using WebSiteFuncionarios.Data.Context;
 namespace WebSiteFuncionarios.Data.Migrations
 {
     [DbContext(typeof(FuncionarioContext))]
-    [Migration("20220916225950_InitialCreate")]
+    [Migration("20220927160656_Initial-Create")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -104,6 +104,9 @@ namespace WebSiteFuncionarios.Data.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Nome")
+                        .HasColumnType("varchar(100)");
+
+                    b.Property<string>("Status")
                         .HasColumnType("varchar(100)");
 
                     b.HasKey("Cpf");

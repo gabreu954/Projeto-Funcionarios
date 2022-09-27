@@ -21,7 +21,10 @@ namespace WebSiteFuncionarios.Data.Mappings
             builder.Property(f => f.Cpf)
                 .HasColumnType("varchar(11)");
 
-            
+            builder.Property(f => f.Status)
+                .HasColumnType("varchar(100)");
+
+
 
 
         }

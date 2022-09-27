@@ -59,7 +59,7 @@ namespace WebSite.Funcionarios.Connections
 
         public void InsertFuncionario(FuncionarioViewModel funcionario)
         {
-            _dbContext.Funcionarios.Add(new Funcionario { Cpf = funcionario.Cpf, Nome = funcionario.Nome, Idade = funcionario.Idade, DepartamentoId = funcionario.DepartamentoId, FuncaoId = funcionario.FuncaoId });
+            _dbContext.Funcionarios.Add(new Funcionario { Cpf = funcionario.Cpf, Nome = funcionario.Nome, Idade = funcionario.Idade, Status = funcionario.Status, DepartamentoId = funcionario.DepartamentoId, FuncaoId = funcionario.FuncaoId });
 
             _dbContext.SaveChanges();
         }
@@ -94,6 +94,7 @@ namespace WebSite.Funcionarios.Connections
                     Nome = item.Nome,
                     Cpf = item.Cpf,
                     Idade = item.Idade,
+                    Status = item.Status,
                     DepartamentoId = item.DepartamentoId,
                     FuncaoId = item.FuncaoId
                 });
@@ -110,6 +111,7 @@ namespace WebSite.Funcionarios.Connections
                 Nome = model.Nome,
                 Cpf = model.Cpf,
                 Idade = model.Idade,
+                Status = model.Status,
                 DepartamentoId = model.DepartamentoId,
                 FuncaoId = model.FuncaoId
             });

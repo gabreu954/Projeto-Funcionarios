@@ -39,6 +39,7 @@ namespace WebSiteFuncionarios.Data.Migrations
                     Cpf = table.Column<string>(type: "varchar(11)", nullable: false),
                     Nome = table.Column<string>(type: "varchar(100)", nullable: true),
                     Idade = table.Column<int>(nullable: false),
+                    Status = table.Column<string>(type: "varchar(100)", nullable: true),
                     DepartamentoId = table.Column<int>(nullable: false),
                     FuncaoId = table.Column<int>(nullable: false)
                 },

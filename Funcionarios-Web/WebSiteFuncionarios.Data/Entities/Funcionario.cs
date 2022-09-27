@@ -10,10 +10,11 @@ namespace WebSiteFuncionarios.Data.Entities
     {
         [Key]
         public string Cpf { get; set; }
-        public string Nome { get; set; }        
+        public string Nome { get; set; }
         public int Idade { get; set; }
+        public string Status { get; set; }
 
-        
+
         public int DepartamentoId { get; set; }
         public Departamento Departamento { get; set; }
 

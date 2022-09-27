@@ -39,7 +39,7 @@ namespace WebSite.Funcionarios.Controllers
             return View("Index");
         }
 
-        public ActionResult Alterar(string cpf, string nome, int idade, int departamentoId, int funcaoId)
+        public ActionResult Alterar(string cpf, string nome, int idade, string status, int departamentoId, int funcaoId)
         {
             ViewData["Funcoes"] = _consultas.SelectFuncoes();
 
@@ -50,6 +50,7 @@ namespace WebSite.Funcionarios.Controllers
                 Cpf = cpf,
                 Nome = nome,
                 Idade = idade,
+                Status = status,
                 DepartamentoId = departamentoId,
                 FuncaoId = funcaoId
             };
@@ -73,7 +74,7 @@ namespace WebSite.Funcionarios.Controllers
 
             TempData["Success"] = "Funcionário atualizado com Sucesso";
 
-            return View("Index");
+            return RedirectToAction("Index");
 
         }
 

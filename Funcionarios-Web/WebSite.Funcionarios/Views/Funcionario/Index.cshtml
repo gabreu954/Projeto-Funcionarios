@@ -55,6 +55,18 @@
                     <input asp-for="Idade" type="number" class="form-control" placeholder="Digite a idade...">
                     <span asp-validation-for="Idade" class="text-danger"></span>
                 </div>
+                <div class="col-6">
+                    <div class="form-group">
+                        <label asp-for="Status">Status(*):</label>
+                        <select asp-for="Status" class="custom-select" placeholder="Selecione">
+                            <option value="">Selecione</option>
+                            <option value="Ativo">Ativo</option>
+                            <option value="Ausente">Ausente</option>
+                            <option value="Desligado">Desligado</option>
+                        </select>
+                        <span asp-validation-for="Status" class="text-danger"></span>
+                    </div>
+                </div>
 
             </div>
 
