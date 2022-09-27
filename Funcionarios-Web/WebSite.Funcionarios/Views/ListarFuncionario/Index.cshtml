@@ -93,6 +93,7 @@
                         <tr>
                             <th scope="col">CPF</th>
                             <th scope="col">Nome</th>
+                            <th scope="col">Status</th>
                             <th></th>
                         </tr>
                     </thead>
@@ -106,6 +107,7 @@
                                 <tr class="table-success">
                                     <th>@item.Cpf</th>
                                     <td>@item.Nome</td>
+                                    <td>@item.Status</td>
                                     <td>
                                         <a href="@Url.Action("Alterar", new { cpf = item.Cpf, nome = item.Nome, idade = item.Idade,status = item.Status, departamentoId  = item.DepartamentoId, funcaoId = item.FuncaoId })" class="btn btn-info"><i class="fa-solid fa-pencil"></i></a>
                                         <button data-id="@item.Cpf" class="excluir btn btn-danger"><i class="fa-solid fa-trash-can"></i></button>
@@ -117,6 +119,7 @@
                                 <tr class="table-warning">
                                     <th>@item.Cpf</th>
                                     <td>@item.Nome</td>
+                                    <td>@item.Status</td>
                                     <td>
                                         <a href="@Url.Action("Alterar", new { cpf = item.Cpf, nome = item.Nome, idade = item.Idade,status = item.Status, departamentoId  = item.DepartamentoId, funcaoId = item.FuncaoId })" class="btn btn-info"><i class="fa-solid fa-pencil"></i></a>
                                         <button data-id="@item.Cpf" class="excluir btn btn-danger"><i class="fa-solid fa-trash-can"></i></button>
@@ -128,6 +131,7 @@
                                 <tr class="table-danger">
                                     <th>@item.Cpf</th>
                                     <td>@item.Nome</td>
+                                    <td>@item.Status</td>
                                     <td>
                                         <a href="@Url.Action("Alterar", new { cpf = item.Cpf, nome = item.Nome, idade = item.Idade,status = item.Status, departamentoId  = item.DepartamentoId, funcaoId = item.FuncaoId })" class="btn btn-info"><i class="fa-solid fa-pencil"></i></a>
                                         <button data-id="@item.Cpf" class="excluir btn btn-danger"><i class="fa-solid fa-trash-can"></i></button>
