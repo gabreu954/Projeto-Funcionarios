@@ -13,7 +13,7 @@ namespace WebSiteFuncionarios.Data.Entities
         public string Nome { get; set; }
         public int Idade { get; set; }
         public string Status { get; set; }
-
+        public int Dependentes { get; set; }
 
         public int DepartamentoId { get; set; }
         public Departamento Departamento { get; set; }

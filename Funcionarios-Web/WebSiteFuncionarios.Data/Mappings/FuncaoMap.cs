@@ -20,27 +20,32 @@ namespace WebSiteFuncionarios.Data.Mappings
                     new Entities.Funcao
                     {
                         FuncaoId = 1,
-                        Descricao = "Técnico de TI"
+                        Descricao = "Técnico de TI",
+                        Salario = 1200.00
                     },
                     new Entities.Funcao
                     {
                         FuncaoId = 2,
-                        Descricao = "Técnico de Segurança"
+                        Descricao = "Técnico de Segurança",
+                        Salario = 3000.00
                     },
                     new Entities.Funcao
                     {
                         FuncaoId = 3,
-                        Descricao = "Desenvolvedor"
+                        Descricao = "Desenvolvedor",
+                        Salario = 2200.00
                     },
                     new Entities.Funcao
                     {
                         FuncaoId = 4,
-                        Descricao = "Analista de Dados"
+                        Descricao = "Analista de Dados",
+                        Salario = 2200.00
                     },
                     new Entities.Funcao
                     {
                         FuncaoId = 5,
-                        Descricao = "QA Tester"
+                        Descricao = "QA Tester",
+                        Salario = 2200.00
                     }
                 );
         }

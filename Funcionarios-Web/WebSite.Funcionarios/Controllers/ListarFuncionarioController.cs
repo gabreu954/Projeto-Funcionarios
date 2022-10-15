@@ -32,14 +32,24 @@ namespace WebSite.Funcionarios.Controllers
         public ActionResult Buscar(BuscaViewModel model)
         {
 
-            ViewData["Registros"] = _consultas.SelectFuncionarios(model);
+            var registros = _consultas.SelectFuncionarios(model);
+
+            if (model.Status != "Desligado")
+            {
+                ViewData["Registros"] = registros.FindAll(f => f.Status != "Desligado");
+            }
+            else
+            {
+                ViewData["Registros"] = registros.FindAll(f => f.Status == "Desligado");
+            }
+            
 
             ViewData["Departamentos"] = _consultas.SelectDepartamentos();
 
             return View("Index");
         }
 
-        public ActionResult Alterar(string cpf, string nome, int idade, string status, int departamentoId, int funcaoId)
+        public ActionResult Alterar(string cpf, string nome, int idade, string status,int dependentes, int departamentoId, int funcaoId)
         {
             ViewData["Funcoes"] = _consultas.SelectFuncoes();
 
@@ -51,6 +61,7 @@ namespace WebSite.Funcionarios.Controllers
                 Nome = nome,
                 Idade = idade,
                 Status = status,
+                Dependentes = dependentes,
                 DepartamentoId = departamentoId,
                 FuncaoId = funcaoId
             };

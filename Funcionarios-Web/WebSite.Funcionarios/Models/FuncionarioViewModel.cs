@@ -30,5 +30,9 @@ namespace WebSite.Funcionarios.Models
 
         [Required(ErrorMessage = "O campo Função é obrigatório")]
         public int FuncaoId { get; set; }
+
+        [Required(ErrorMessage = "O campo Dependentes é obrigatório")]
+        public int Dependentes { get; set; }
+        public double Salario { get; set; }
     }
 }

@@ -59,7 +59,7 @@ namespace WebSite.Funcionarios.Connections
 
         public void InsertFuncionario(FuncionarioViewModel funcionario)
         {
-            _dbContext.Funcionarios.Add(new Funcionario { Cpf = funcionario.Cpf, Nome = funcionario.Nome, Idade = funcionario.Idade, Status = funcionario.Status, DepartamentoId = funcionario.DepartamentoId, FuncaoId = funcionario.FuncaoId });
+            _dbContext.Funcionarios.Add(new Funcionario { Cpf = funcionario.Cpf, Nome = funcionario.Nome, Idade = funcionario.Idade, Status = funcionario.Status, Dependentes = funcionario.Dependentes, DepartamentoId = funcionario.DepartamentoId, FuncaoId = funcionario.FuncaoId });
 
             _dbContext.SaveChanges();
         }
@@ -89,14 +89,38 @@ namespace WebSite.Funcionarios.Connections
 
             foreach (var item in retornoquery)
             {
+
+                double salario = 0;
+
+                item.Funcao = _dbContext.Funcoes.Where(func => func.FuncaoId == item.FuncaoId).ToList()[0];
+
+                if (item.Dependentes == 0)
+                {
+                    salario = item.Funcao.Salario;
+                }
+                if (item.Dependentes == 1)
+                {
+                    salario = item.Funcao.Salario * 0.98;
+                }
+                if (item.Dependentes == 2)
+                {
+                    salario = item.Funcao.Salario * 0.97;
+                }
+                if (item.Dependentes == 3)
+                {
+                    salario = item.Funcao.Salario * 0.95;
+                }
+
                 retorno.Add(new FuncionarioViewModel
                 {
                     Nome = item.Nome,
                     Cpf = item.Cpf,
                     Idade = item.Idade,
                     Status = item.Status,
+                    Dependentes = item.Dependentes,
                     DepartamentoId = item.DepartamentoId,
-                    FuncaoId = item.FuncaoId
+                    FuncaoId = item.FuncaoId,
+                    Salario = salario
                 });
             }
 
@@ -112,6 +136,7 @@ namespace WebSite.Funcionarios.Connections
                 Cpf = model.Cpf,
                 Idade = model.Idade,
                 Status = model.Status,
+                Dependentes = model.Dependentes,
                 DepartamentoId = model.DepartamentoId,
                 FuncaoId = model.FuncaoId
             });

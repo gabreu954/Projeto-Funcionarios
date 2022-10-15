@@ -25,7 +25,8 @@ namespace WebSiteFuncionarios.Data.Migrations
                 {
                     FuncaoId = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    Descricao = table.Column<string>(type: "varchar(100)", nullable: true)
+                    Descricao = table.Column<string>(type: "varchar(100)", nullable: true),
+                    Salario = table.Column<double>(type: "decimal(10,2)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -40,6 +41,7 @@ namespace WebSiteFuncionarios.Data.Migrations
                     Nome = table.Column<string>(type: "varchar(100)", nullable: true),
                     Idade = table.Column<int>(nullable: false),
                     Status = table.Column<string>(type: "varchar(100)", nullable: true),
+                    Dependentes = table.Column<int>(nullable: false),
                     DepartamentoId = table.Column<int>(nullable: false),
                     FuncaoId = table.Column<int>(nullable: false)
                 },
@@ -77,28 +79,28 @@ namespace WebSiteFuncionarios.Data.Migrations
 
             migrationBuilder.InsertData(
                 table: "Funcoes",
-                columns: new[] { "FuncaoId", "Descricao" },
-                values: new object[] { 1, "Técnico de TI" });
+                columns: new[] { "FuncaoId", "Descricao", "Salario" },
+                values: new object[] { 1, "Técnico de TI", 1200.0 });
 
             migrationBuilder.InsertData(
                 table: "Funcoes",
-                columns: new[] { "FuncaoId", "Descricao" },
-                values: new object[] { 2, "Técnico de Segurança" });
+                columns: new[] { "FuncaoId", "Descricao", "Salario" },
+                values: new object[] { 2, "Técnico de Segurança", 3000.0 });
 
             migrationBuilder.InsertData(
                 table: "Funcoes",
-                columns: new[] { "FuncaoId", "Descricao" },
-                values: new object[] { 3, "Desenvolvedor" });
+                columns: new[] { "FuncaoId", "Descricao", "Salario" },
+                values: new object[] { 3, "Desenvolvedor", 2200.0 });
 
             migrationBuilder.InsertData(
                 table: "Funcoes",
-                columns: new[] { "FuncaoId", "Descricao" },
-                values: new object[] { 4, "Analista de Dados" });
+                columns: new[] { "FuncaoId", "Descricao", "Salario" },
+                values: new object[] { 4, "Analista de Dados", 2200.0 });
 
             migrationBuilder.InsertData(
                 table: "Funcoes",
-                columns: new[] { "FuncaoId", "Descricao" },
-                values: new object[] { 5, "QA Tester" });
+                columns: new[] { "FuncaoId", "Descricao", "Salario" },
+                values: new object[] { 5, "QA Tester", 2200.0 });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Funcionarios_DepartamentoId",

@@ -55,6 +55,9 @@ namespace WebSiteFuncionarios.Data.Migrations
                     b.Property<string>("Descricao")
                         .HasColumnType("varchar(100)");
 
+                    b.Property<double>("Salario")
+                        .HasColumnType("decimal(10,2)");
+
                     b.HasKey("FuncaoId");
 
                     b.ToTable("Funcoes");
@@ -63,27 +66,32 @@ namespace WebSiteFuncionarios.Data.Migrations
                         new
                         {
                             FuncaoId = 1,
-                            Descricao = "Técnico de TI"
+                            Descricao = "Técnico de TI",
+                            Salario = 1200.0
                         },
                         new
                         {
                             FuncaoId = 2,
-                            Descricao = "Técnico de Segurança"
+                            Descricao = "Técnico de Segurança",
+                            Salario = 3000.0
                         },
                         new
                         {
                             FuncaoId = 3,
-                            Descricao = "Desenvolvedor"
+                            Descricao = "Desenvolvedor",
+                            Salario = 2200.0
                         },
                         new
                         {
                             FuncaoId = 4,
-                            Descricao = "Analista de Dados"
+                            Descricao = "Analista de Dados",
+                            Salario = 2200.0
                         },
                         new
                         {
                             FuncaoId = 5,
-                            Descricao = "QA Tester"
+                            Descricao = "QA Tester",
+                            Salario = 2200.0
                         });
                 });
 
@@ -93,6 +101,9 @@ namespace WebSiteFuncionarios.Data.Migrations
                         .HasColumnType("varchar(11)");
 
                     b.Property<int>("DepartamentoId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("Dependentes")
                         .HasColumnType("INTEGER");
 
                     b.Property<int>("FuncaoId")

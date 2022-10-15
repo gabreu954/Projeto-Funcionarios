@@ -9,5 +9,7 @@ namespace WebSite.Funcionarios.Models
     {
         public string Nome { get; set; }
         public int DepartamentoId { get; set; }
+        public string Status { get; set; }
+
     }
 }
