@@ -13,7 +13,7 @@ namespace WebSite.Funcionarios.Models
         [Required(ErrorMessage = "O campo CPF é inválido")]
         public string Cpf { get; set; }
 
-
+        [RegularExpression("^[a-zA-Z ]*$", ErrorMessage ="Só é permitido letras")]
         [Required(ErrorMessage = "O campo Nome é inválido")]
         public string Nome { get; set; }
 
