@@ -9,15 +9,14 @@ namespace WebSite.Funcionarios.Models
 {
     public class FuncionarioViewModel
     {
-
+        [RegularExpression("^[0-9]*$", ErrorMessage = "Só é permitido números!")]
         [Required(ErrorMessage = "O campo CPF é inválido")]
         public string Cpf { get; set; }
 
-        [RegularExpression("^[a-zA-Z ]*$", ErrorMessage ="Só é permitido letras")]
+        [RegularExpression("^[a-zA-Z-\u0000-\u0080 ]*$", ErrorMessage ="Só é permitido letras!")]
         [Required(ErrorMessage = "O campo Nome é inválido")]
         public string Nome { get; set; }
-
-
+        
         [Required(ErrorMessage = "O campo Idade é obrigatório")]
         public int Idade { get; set; }
 

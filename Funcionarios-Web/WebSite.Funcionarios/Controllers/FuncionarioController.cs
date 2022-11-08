@@ -42,6 +42,10 @@ namespace WebSite.Funcionarios.Controllers
             {
                 TempData["Error"] = $"Ocorreu um erro: {ex.Message}";
 
+                ViewData["Funcoes"] = _consultas.SelectFuncoes();
+
+                ViewData["Departamentos"] = _consultas.SelectDepartamentos();
+
                 return View("Index");
             }
 
