@@ -34,9 +34,17 @@ namespace WebSite.Funcionarios.Controllers
 
             var registros = _consultas.SelectFuncionarios(model);
 
-            if (model.Status != "Desligado")
+            if (model.Status != "Desligado" && String.IsNullOrEmpty(model.Status))
             {
                 ViewData["Registros"] = registros.FindAll(f => f.Status != "Desligado");
+            }
+            else if(model.Status == "Ativo")
+            {
+                ViewData["Registros"] = registros.FindAll(f => f.Status == "Ativo");
+            }
+            else if(model.Status == "Ausente")
+            {
+                ViewData["Registros"] = registros.FindAll(f => f.Status == "Ausente");
             }
             else
             {
