@@ -14,7 +14,7 @@ namespace WebSite.Funcionarios.Connections
 
         public ConsultasEntity(FuncionarioContext dbContext)
         {
-            _dbContext = dbContext;
+            _dbContext = dbContext; 
         }
 
         public List<FuncaoViewModel> SelectFuncoes()
